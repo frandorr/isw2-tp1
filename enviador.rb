@@ -1,10 +1,11 @@
+# Clase enviadora de mensages
 class Enviador
 	def initialize
 		
 	end
 
 	def enviar mensaje, destinatario
-		puts "enviar no implementado"
+		"Mensaje de autor #{mensaje.autor} enviado a destinatario #{destinatario.nombre}"
 	end
 	
 	

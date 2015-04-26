@@ -1,4 +1,4 @@
-# Interfaz de destinatario
+# Interfaz 
 
 class Destinatario
 	def nombre

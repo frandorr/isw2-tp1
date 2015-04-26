@@ -1,11 +1,7 @@
-# Clase enviadora de mensages
+# Clase abstracta 
 class Enviador
-	def initialize
-		
-	end
 
-	def enviar mensaje, destinatario
-		"Mensaje de autor #{mensaje.autor} enviado a destinatario #{destinatario.nombre}"
+	def enviar mensaje, destinatarios
 	end
 	
 	

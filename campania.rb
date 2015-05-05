@@ -1,6 +1,6 @@
 
 class Campania 
 	def initialize
-	    raise "no se puede instaciar esta clase"
+	    raise "no se puede instanciar esta clase"
 	end
 end

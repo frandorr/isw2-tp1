@@ -10,13 +10,12 @@ class Scheduler
 	end
 
 	def iniciarPlan
+		alarma = Alarma.new
 		@plan.keys.sort.each do |fecha, mensaje|
 			#Se llama a la alarma
 			puts "Esperando que sea la fecha #{fecha}"
 			
-			alarma = Alarma.new(fecha)
-
-			alarma.iniciar()
+			alarma.notificarFecha(fecha)
 
 			#Salio de la alarma quiere decir que llego la fecha
 			puts @enviador.enviar(mensaje, @destinatarios)

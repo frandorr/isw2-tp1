@@ -5,14 +5,14 @@ class Scheduler
 	attr_reader :plan
 	attr_reader :mensajesPorEnviar
 
-	def initialize hoy, plan, enviador
+	def initialize hoy, plan, despachador
 		@alarma = Alarma.new hoy
 		@plan = plan
 		@despachador = despachador 
 		@mensajesPorEnviar = plan.length
 	end
 
-	def iniciarPlan	git 
+	def iniciarPlan
 		@plan.sort! {|a,b| a.fecha_de_envio <=> b.fecha_de_envio}
 
 		@plan.each do |envio|

@@ -4,6 +4,9 @@ require_relative "envio"
 require_relative "scheduler"
 require_relative "enviador_sms"
 require_relative "alumno"
+require_relative "despachador_mensaje"
+require_relative "entrada_agenda"
+require_relative "agenda"
 
 puts "Ingrese su nombre"
 autor = gets
@@ -21,9 +24,11 @@ while i < cantidadMensajes
 	contenido = gets	
 
 	destinatarios = Array.new
-	
+	entradas = Array.new
 	puts "Ingrese destinatario"
-	destinatarios << Alumno.new(gets)
+	nombre = gets
+	destinatarios << Alumno.new(nombre)
+	entradas << EntradaAgenda.new(nombre, "45609209")
 
 	mensaje = Mensaje.new(autor, contenido, destinatarios)
 	
@@ -38,10 +43,12 @@ while i < cantidadMensajes
 	i += 1
 end
 
-enviador = EnviadorSms.new
+agenda = Agenda.new(entradas)
+enviador = Enviador.new
+despachador = DespachadorMensaje.new(agenda, enviador)
 hoy = Time.now
 
-scheduler = Scheduler.new(hoy, plan, enviador)
+scheduler = Scheduler.new(hoy, plan, despachador)
 
 t1=Thread.new{scheduler.iniciarPlan}
 

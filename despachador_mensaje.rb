@@ -1,14 +1,15 @@
 class DespachadorMensaje
-	attr_reader :agenda, :enviador
-	def initialize agenda, enviador
+
+	def initialize agenda
 		@agenda = agenda
-		@enviador = enviador
+		@enviador = Enviador.instance
 	end
 
 	def despachar mensaje
 		mensaje.destinatarios.each do |destinatario|
 			tel_destinatario = @agenda.telefono(destinatario.nombre)
-			enviador.enviar(mensaje.contenido, tel_destinatario)
+			puts "dest nombre #{destinatario.nombre} y su tel #{tel_destinatario}"
+			@enviador.enviar(mensaje.contenido, tel_destinatario)
 		end
 	end
 end

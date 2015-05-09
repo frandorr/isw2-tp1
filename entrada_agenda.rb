@@ -4,9 +4,4 @@ class EntradaAgenda
 		@nombre = nombre
 		@telefono = telefono
 	end
-
-	def tiene_nombre? nombre
-		return @nombre == nombre
-	end
-
 end

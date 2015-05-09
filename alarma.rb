@@ -9,8 +9,8 @@ class Alarma
 
 	def notificarFecha fecha
 		until fecha <= @hoy
-			puts "aun no se cumplio la fecha #{fecha}"	
-			sleep 10					
+			puts "aun no se cumplio la fecha #{fecha}, hoy es #{@hoy}"	
+			sleep 5				
 		end 
 	end
 

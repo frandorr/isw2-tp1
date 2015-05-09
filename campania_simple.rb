@@ -8,7 +8,7 @@ class CampaniaSimple < Campania
 	def initialize evento, plan
         @evento_asociado = evento
         @plan = plan
-        @scheduler = Scheduler.new(Time.now, plan, EnviadorSms.new) 
+        @scheduler = Scheduler.new(Time.now, plan, despachador) 
 	end
 
     def imprimir 

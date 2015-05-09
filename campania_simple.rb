@@ -3,16 +3,16 @@ require_relative "envio"
 require_relative "evento"
 
 class CampaniaSimple < Campania
-	def initialize evento, envios
+	def initialize evento, plan
         @evento_asociado = evento
-        @secuencia_de_envios = envios
+        @plan = plan
 	end
 
     def imprimir 
         puts "EVENTO = #{@evento_asociado.evento_anunciado}"
         
-        puts "ENVIOS"
-        for e in @secuencia_de_envios
+        puts "PLAN"
+        for e in @plan
             e.mostrarEnvio
         end
         return 2

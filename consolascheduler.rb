@@ -10,8 +10,8 @@ autor = gets
 
 
 puts "Ingrese la cantidad de mensajes a enviar:"
-cantidadMensajesIngresado = gets
-cantidadMensajes= Integer(cantidadMensajesIngresado)
+
+cantidadMensajes= Integer(gets)
 
 plan = Array.new
 

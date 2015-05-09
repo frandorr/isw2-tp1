@@ -5,6 +5,7 @@ require_relative "campania_simple"
 
 puts "Ingrese su nombre"
 autor = gets
+puts "Autor : #{autor}"
 
 eventos = [	
 			Evento.new("prueba de matematica, me puse la gorra"), 
@@ -18,15 +19,14 @@ eventos.each do |evento|
 end
 
 puts "Seleccionar evento:"
-eventoIngresado = gets
-numeroEventoSeleccionado= Integer(eventoIngresado)
+
+numeroEventoSeleccionado= Integer(gets)
 
 eventoSeleccionado = eventos.at(numeroEventoSeleccionado-1)
 puts "Evento seleccionado:  #{eventoSeleccionado.evento_anunciado}"
 
 puts "Ingrese la cantidad de mensajes a enviar:"
-cantidadMensajesIngresado = gets
-cantidadMensajes= Integer(cantidadMensajesIngresado)
+cantidadMensajes= Integer(gets)
 
 plan = Array.new
 

@@ -5,11 +5,10 @@ class Scheduler
 	attr_reader :plan
 	attr_reader :mensajesPorEnviar
 
-	def initialize hoy, plan, enviador, destinatarios
+	def initialize hoy, plan, enviador
 		@alarma = Alarma.new hoy
 		@plan = plan
 		@enviador =  enviador
-		@destinatarios = destinatarios		
 		@mensajesPorEnviar = plan.length
 	end
 
@@ -24,7 +23,7 @@ class Scheduler
 			puts "Se cumplio la fecha #{envio.fecha_de_envio}"
 
 			#Se envia el mensaje correspondiente	
-			puts @enviador.enviar(envio.mensaje, @destinatarios)
+			puts @enviador.enviar(envio.mensaje)
 			@mensajesPorEnviar -= 1
 		end
 	end

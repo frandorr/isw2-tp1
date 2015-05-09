@@ -1,8 +1,7 @@
 require_relative 'enviador'
 
 class EnviadorSms < Enviador
-	def enviar mensaje, destinatarios
-		@mensajes_enviados[mensaje] = destinatarios
+	def enviar mensaje
 		"SMS enviado"
 	end
 

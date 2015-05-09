@@ -3,6 +3,8 @@ require_relative "envio"
 require_relative "evento"
 require_relative "enviador_sms"
 require_relative "scheduler"
+require_relative "agenda"
+require_relative "despachador_mensaje"
 
 class CampaniaSimple < Campania
 	def initialize evento, plan
@@ -21,8 +23,9 @@ class CampaniaSimple < Campania
         return 2
     end
 
-    def iniciar
-        @scheduler.iniciarPlan
+    def iniciar agenda
+        despachador = DespachadorMensaje.new(agenda)
+        @scheduler.iniciarPlan despachador
     end
 
     def pasarSiguienteDia

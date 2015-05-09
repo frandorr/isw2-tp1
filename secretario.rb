@@ -1,8 +1,12 @@
 #Clase que representa a un Secretario
 class Secretario < CuerpoEducativo
 
-	def initialize
-		
+	def initialize nombre
+		@nombre = nombre		
+	end
+
+	def nombre
+		@nombre
 	end
 
 end

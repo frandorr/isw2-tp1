@@ -1,11 +1,14 @@
 require_relative "campania"
 require_relative "envio"
 require_relative "evento"
+require_relative "enviador_sms"
+require_relative "scheduler"
 
 class CampaniaSimple < Campania
 	def initialize evento, plan
         @evento_asociado = evento
         @plan = plan
+        @scheduler = Scheduler.new(Time.now, plan, EnviadorSms.new) 
 	end
 
     def imprimir 
@@ -16,5 +19,17 @@ class CampaniaSimple < Campania
             e.mostrarEnvio
         end
         return 2
+    end
+
+    def iniciar
+        @scheduler.iniciarPlan
+    end
+
+    def pasarSiguienteDia
+        @scheduler.pasarSiguienteDia
+    end
+
+    def mensajesPorEnviar
+        @scheduler.mensajesPorEnviar
     end
 end

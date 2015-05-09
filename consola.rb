@@ -2,6 +2,7 @@ require_relative "evento"
 require_relative "mensaje"
 require_relative "envio"
 require_relative "campania_simple"
+require_relative "alumno"
 
 puts "Ingrese su nombre"
 autor = gets
@@ -32,9 +33,20 @@ plan = Array.new
 
 i=0
 while i < cantidadMensajes
-	puts "Ingrese el contenido del mensaje a enviar:"
+	puts "Ingrese el contenido del mensaje numero #{i} a enviar:"
 	contenido = gets	
-	mensaje = Mensaje.new(autor, contenido)
+
+	destinatarios = Array.new
+	
+	puts "Ingrese cantiadad destinatarios"
+	cantidadDestinatarios= Integer(gets)	
+	j=0
+	while j < cantidadDestinatarios
+		puts "Ingrese destinatario numero #{j}"
+		destinatarios << Alumno.new(gets)
+		j += 1;
+	end	
+	mensaje = Mensaje.new(autor, contenido, destinatarios)
 	
 	puts "Ingrese fecha del mensaje con formato dd mm aaaa:"
 	fechaIngresado = gets
@@ -48,4 +60,19 @@ while i < cantidadMensajes
 end
 
 camp = CampaniaSimple.new(eventoSeleccionado,plan)
-camp.imprimir
+
+puts "Presione una tecla para iniciar la campaña"
+gets
+
+t1=Thread.new{camp.iniciar}
+
+t2=Thread.new{
+	while camp.mensajesPorEnviar > 0
+		puts "Presione 1 si quiere pasar al dia siguiente"
+		gets
+		camp.pasarSiguienteDia
+	end
+}
+
+t1.join
+t2.join

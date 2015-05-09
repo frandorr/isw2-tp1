@@ -11,7 +11,6 @@ eventos.each do |evento|
 	numeroEvento +=1
 end
 
-
 print "Seleccionar evento:"
 ingresado = gets
 numeroEventoSeleccionado= Integer(ingresado)

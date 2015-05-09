@@ -19,7 +19,10 @@ i=0
 while i < cantidadMensajes
 	puts "Ingrese el contenido del mensaje a enviar:"
 	contenido = gets	
+
+puts "Ingrese destinatario"
 	mensaje = Mensaje.new(autor, contenido)
+
 	
 	puts "Ingrese fecha del mensaje con formato dd mm aaaa:"
 	fechaIngresado = gets

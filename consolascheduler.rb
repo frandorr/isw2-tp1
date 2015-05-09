@@ -20,9 +20,12 @@ while i < cantidadMensajes
 	puts "Ingrese el contenido del mensaje a enviar:"
 	contenido = gets	
 
-puts "Ingrese destinatario"
-	mensaje = Mensaje.new(autor, contenido)
+	destinatarios = Array.new
+	
+	puts "Ingrese destinatario"
+	destinatarios << Alumno.new(gets)
 
+	mensaje = Mensaje.new(autor, contenido, destinatarios)
 	
 	puts "Ingrese fecha del mensaje con formato dd mm aaaa:"
 	fechaIngresado = gets
@@ -36,12 +39,9 @@ puts "Ingrese destinatario"
 end
 
 enviador = EnviadorSms.new
-alumno1 = Alumno.new("Pepito")
-alumno2 = Alumno.new("Joe")
-destinatarios = [alumno1,alumno2]
 hoy = Time.now
 
-scheduler = Scheduler.new(hoy, plan, enviador, destinatarios)
+scheduler = Scheduler.new(hoy, plan, enviador)
 
 t1=Thread.new{scheduler.iniciarPlan}
 

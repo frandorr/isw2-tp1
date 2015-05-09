@@ -6,8 +6,7 @@ class DespachadorMensaje
 
 	def despachar mensaje
 		mensaje.destinatarios.each do |destinatario|:
-			datos_destinatario = @agenda.entrada(destinatario)
-			tel_destinatario = datos_destinatario['telefono']
+			tel_destinatario = @agenda.telefono(destinatario)
 			enviador.enviar(mensaje.contenido, tel_destinatario)
 
 	end

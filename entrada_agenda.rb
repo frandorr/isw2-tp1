@@ -1,7 +1,7 @@
 class EntradaAgenda
-	def initialize datos_alumno
-		@datos_alumno = datos_alumno
+	attr_reader :nombre, :tel
+	def initialize nombre, telefono
+		@nombre = nombre
+		@telefono = telefono
 	end
-	
-	
 end

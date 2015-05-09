@@ -12,7 +12,7 @@ class Scheduler
 		@mensajesPorEnviar = plan.length
 	end
 
-	def iniciarPlan	
+	def iniciarPlan	git 
 		@plan.sort! {|a,b| a.fecha_de_envio <=> b.fecha_de_envio}
 
 		@plan.each do |envio|

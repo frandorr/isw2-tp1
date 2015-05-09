@@ -17,7 +17,7 @@ class TestEnviador < Test::Unit::TestCase
 		alumno2 = Alumno.new("Joe")
 		destinatarios = [alumno1,alumno2]
 	
-		f1 = Time.new(2015, 05, 8)
+		f1 = Time.new(2015, 05, 10)
 		f2 = Time.new(2015, 05, 2) 
 		f3 = Time.new(2015, 05, 1)
 		
@@ -30,7 +30,11 @@ class TestEnviador < Test::Unit::TestCase
 		env3 = Envio.new(f3,m3)
 
 		plan = [env1,env2,env3]
-		scheduler = Scheduler.new(plan, enviador, destinatarios)
+		scheduler = Scheduler.new(Time.now,plan, enviador, destinatarios)
+		
+		scheduler.pasarSiguienteDia
+		scheduler.pasarSiguienteDia
+
 		scheduler.iniciarPlan
 		
 	end

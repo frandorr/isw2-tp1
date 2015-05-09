@@ -10,7 +10,7 @@ class CampaniaSimple < Campania
 
     def imprimir 
         puts "EVENTO = #{@evento_asociado.evento_anunciado}"
-        puts "CAMPANIA #1"
+        
         puts "ENVIOS"
         for e in @secuencia_de_envios
             e.mostrarEnvio

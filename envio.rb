@@ -11,6 +11,6 @@ class Envio
 	end
 
     def mostrarEnvio
-        puts "#{@fecha_de_envio} - #{@mensaje.contenido}"
+        puts "#{@fecha_de_envio} - #{@mensaje.autor} - #{@mensaje.contenido}"
     end
 end

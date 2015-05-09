@@ -1,4 +1,10 @@
 require_relative "evento"
+require_relative "mensaje"
+require_relative "envio"
+require_relative "campania_simple"
+
+puts "Ingrese su nombre"
+autor = gets
 
 eventos = [	
 			Evento.new("prueba de matematica, me puse la gorra"), 
@@ -11,9 +17,35 @@ eventos.each do |evento|
 	numeroEvento +=1
 end
 
-print "Seleccionar evento:"
-ingresado = gets
-numeroEventoSeleccionado= Integer(ingresado)
+puts "Seleccionar evento:"
+eventoIngresado = gets
+numeroEventoSeleccionado= Integer(eventoIngresado)
 
 eventoSeleccionado = eventos.at(numeroEventoSeleccionado-1)
 puts "Evento seleccionado:  #{eventoSeleccionado.evento_anunciado}"
+
+puts "Ingrese la cantidad de mensajes a enviar:"
+cantidadMensajesIngresado = gets
+cantidadMensajes= Integer(cantidadMensajesIngresado)
+
+plan = Array.new
+
+i=0
+while i < cantidadMensajes
+	puts "Ingrese el contenido del mensaje a enviar:"
+	contenido = gets	
+	mensaje = Mensaje.new(autor, contenido)
+	
+	puts "Ingrese fecha del mensaje con formato dd mm aaaa:"
+	fechaIngresado = gets
+	diaMesAnio = fechaIngresado.split
+	fecha = Time.new(diaMesAnio.at(2),diaMesAnio.at(1),diaMesAnio.at(0))
+
+	envio = Envio.new(fecha,mensaje)
+	plan << envio
+
+	i += 1
+end
+
+camp = CampaniaSimple.new(eventoSeleccionado,plan)
+camp.imprimir

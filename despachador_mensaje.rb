@@ -1,3 +1,4 @@
+require_relative "enviador"
 class DespachadorMensaje
 
 	def initialize agenda

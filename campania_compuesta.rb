@@ -3,10 +3,18 @@ require_relative "envio"
 require_relative "evento"
 
 class CampaniaCompuesta < Campania
-	def initialize hijo, envios
-    @campania_hijo = hijo
+	def initialize hijos, envios
+    @campanias_hijos = hijos
     @secuencia_de_envios = envios
 	end
+	
+	def obtenerEficacia
+		eficacia = 0
+    	@campania_hijos.each do |campania|
+			eficacia += campania.obtenerEficacia
+		end	
+		return eficacia/@campania_hijos.length
+    end
 
 #    def imprimir 
 #        nro = @campania_hijo.imprimir

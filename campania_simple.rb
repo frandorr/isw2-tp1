@@ -23,4 +23,13 @@ class CampaniaSimple < Campania
     def mensajesPorEnviar
         @scheduler.tareasPorRealizar
     end
+    
+    def setearEficacia eficacia
+        @eficacia = eficacia
+    end
+    
+    def obtenerEficacia
+    	@eficacia
+    end
+    
 end

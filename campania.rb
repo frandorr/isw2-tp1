@@ -6,5 +6,7 @@ class Campania
 	
 	def obtenerEficacia
 	end
-	
+
+    def iniciar agenda
+    end	
 end

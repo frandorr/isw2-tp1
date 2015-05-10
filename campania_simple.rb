@@ -1,5 +1,4 @@
 require_relative "campania"
-require_relative "envio"
 require_relative "evento"
 require_relative "scheduler"
 require_relative "agenda"
@@ -7,7 +6,8 @@ require_relative "despachador_mensaje"
 
 class CampaniaSimple < Campania
 	def initialize evento, plan
-        @evento_asociado = evento        
+        @evento_asociado = evento   
+        @plan = plan     
         @scheduler = Scheduler.new plan 
 	end
 

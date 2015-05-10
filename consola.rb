@@ -5,6 +5,7 @@ require_relative "campania_simple"
 require_relative "alumno"
 require_relative "entrada_agenda"
 require_relative "agenda"
+require_relative "plan"
 
 def ingresoAutor
 	puts "Ingrese su nombre"
@@ -60,7 +61,7 @@ def ingresoPlan autor, frecuenciaEnvio
 	puts "Ingrese la cantidad de mensajes a enviar:"
 	cantidadMensajes= Integer(gets)
 
-	plan = Array.new
+	items_plan = Array.new
 
 	i=1
 	fecha = Time.now
@@ -80,12 +81,12 @@ def ingresoPlan autor, frecuenciaEnvio
 		end	
 		mensaje = Mensaje.new(autor, contenido, destinatarios)
 		
-		plan << ItemPlan.new(fecha,mensaje)
+		items_plan << ItemPlan.new(fecha,mensaje)
 		
 		i += 1
 		fecha += (60*60*24*frecuenciaEnvio)
 	end
-	plan
+	plan = Plan.new(items_plan)
 end
 
 #Inicio de la ejecucion

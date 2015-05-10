@@ -6,12 +6,12 @@ class Scheduler
 
 	def initialize plan
 		@alarma = Alarma.new
-		@plan = plan.sort! {|a,b| a.fecha <=> b.fecha}
-		@tareasPorRealizar = plan.length
+		@items_plan = plan.items_plan.sort! {|a,b| a.fecha <=> b.fecha}
+		@tareasPorRealizar= @items_plan.length
 	end
 
 	def iniciarPlan despachador
-		@plan.each do |item|
+		@items_plan.each do |item|
 			#Se llama a la alarma			
 			@alarma.notificarFecha(item.fecha)
 

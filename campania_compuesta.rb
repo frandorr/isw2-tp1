@@ -8,14 +8,14 @@ class CampaniaCompuesta < Campania
         @secuencia_de_envios = envios
 	end
 
-    def imprimir 
-        nro = @campania_hijo.imprimir
-        puts ""
-        puts "CAMPANIA ##{nro}"
-        puts "ENVIOS"
-        for e in @secuencia_de_envios
-            e.mostrarEnvio
-        end
-        return (nro+1)
-    end
+#    def imprimir 
+#        nro = @campania_hijo.imprimir
+#        puts ""
+#        puts "CAMPANIA ##{nro}"
+#        puts "ENVIOS"
+#        for e in @secuencia_de_envios
+#            e.mostrarEnvio
+#        end
+#        return (nro+1)
+#    end
 end

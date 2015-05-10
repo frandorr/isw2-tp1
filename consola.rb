@@ -1,6 +1,6 @@
 require_relative "evento"
 require_relative "mensaje"
-require_relative "envio"
+require_relative "item_plan"
 require_relative "campania_simple"
 require_relative "alumno"
 require_relative "entrada_agenda"
@@ -80,9 +80,8 @@ def ingresoPlan autor, frecuenciaEnvio
 		end	
 		mensaje = Mensaje.new(autor, contenido, destinatarios)
 		
-		envio = Envio.new(fecha,mensaje)
-		plan << envio
-
+		plan << ItemPlan.new(fecha,mensaje)
+		
 		i += 1
 		fecha += (60*60*24*frecuenciaEnvio)
 	end

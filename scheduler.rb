@@ -1,5 +1,4 @@
 require_relative 'alarma'
-require_relative "envio"
 
 class Scheduler
 	attr_reader :plan
@@ -7,22 +6,20 @@ class Scheduler
 
 	def initialize plan
 		@alarma = Alarma.new
-		@plan = plan
+		@plan = plan.sort! {|a,b| a.fecha <=> b.fecha}
 		@tareasPorRealizar = plan.length
 	end
 
 	def iniciarPlan despachador
-		@plan.sort! {|a,b| a.fecha_de_envio <=> b.fecha_de_envio}
-
-		@plan.each do |tarea|
+		@plan.each do |item|
 			#Se llama a la alarma			
-			@alarma.notificarFecha(tarea.fecha_de_envio)
+			@alarma.notificarFecha(item.fecha)
 
 			#Salio de la alarma quiere decir que llego la fecha
-			puts "Se cumplio la fecha #{tarea.fecha_de_envio.strftime('%d/%m/%Y')}"
+			puts "Se cumplio la fecha #{item.fecha.strftime('%d/%m/%Y')}"
 
 			#Se despacha el mensaje correspondiente	
-			despachador.despachar(tarea.mensaje)
+			despachador.despachar(item.tarea)
 			@tareasPorRealizar -= 1
 		end
 	end

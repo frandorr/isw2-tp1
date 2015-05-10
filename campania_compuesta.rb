@@ -4,8 +4,8 @@ require_relative "evento"
 
 class CampaniaCompuesta < Campania
 	def initialize hijo, envios
-        @campania_hijo = hijo
-        @secuencia_de_envios = envios
+    @campania_hijo = hijo
+    @secuencia_de_envios = envios
 	end
 
 #    def imprimir 

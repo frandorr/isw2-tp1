@@ -3,8 +3,8 @@ class ItemPlan
 	attr_reader :tarea
 
 	def initialize fecha, tarea
-	    @fecha = fecha
-        @tarea = tarea
+    @fecha = fecha
+    @tarea = tarea
 	end
 
 end

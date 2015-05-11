@@ -115,3 +115,8 @@ t2=Thread.new{
 t1.join
 t2.join
 
+puts "Campaña finalizada"
+puts "Ingrese el valor de la evaluacion: "
+camp.setearEficacia Integer(gets)
+
+puts "Evaluacion de campaña: #{camp.obtenerEficacia}"
